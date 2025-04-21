@@ -1,0 +1,722 @@
+/*Colores de fondo*/
+$bg: linear-gradient(90deg, black 2%, #193248 70%, #193248 90%);
+$bg-card-uno: linear-gradient(to right, #e3a301, #FFCC00);
+$bg-card-dos: linear-gradient(90deg, rgb(6, 26, 2) 2%, #0f7006 70%, #0faa01 90%);
+$bg-card-tres: linear-gradient(90deg, rgb(3, 14, 36) 2%, #120076 70%, #011876 90%);
+$bg-black-default: rgba(0, 0, 0, 0.205);
+$border-cs: 14px;
+
+.bg {
+  background: $bg;
+}
+
+.bg-card-uno {
+  background: $bg-card-uno;
+}
+
+.bg-card-dos {
+  background: $bg-card-dos;
+}
+
+.bg-card-tres {
+  background: $bg-card-tres;
+}
+
+.bg-black-default {
+  background: $bg-black-default;
+  border-radius: $border-cs;
+}
+
+/*fuentes*/
+// Importar fuentes de Google
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wdth,wght@62.5..100,258&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@605&family=Rubik+Mono+One&display=swap');
+
+// Variables
+$navbar-font-family: 'Lexend', sans-serif; // Fuente del navbar
+$navbar-font-weight: bold; // Peso de la fuente
+$font-family-base: "Poppins", sans-serif;
+$font-family-gabriela: "Gabriela", serif;
+$font-family-genos: "Genos", serif;
+$font-family-noto: "Noto Serif", serif;
+$font-family-yusei: "Yusei Magic", sans-serif;
+$font-family-rubik: "Rubik Mono One", monospace;
+$font-family-funnel: "Funnel Display", sans-serif;
+
+// Font sizes responsivos
+$font-sizes: (
+  "xs": 0.75rem,// Extra pequeño
+  "sm": 0.875rem,// Pequeño
+  "md": 1rem,// Mediano
+  "lg": 1.5rem,// Grande
+  "xl": 1.5rem,// Extra grande
+  "xxl": 2.6rem// Doble extra grande
+);
+
+@mixin responsive-font-size($size) {
+  font-size: map-get($font-sizes, $size);
+
+  @media screen and (min-width: 768px) {
+    font-size: calc(map-get($font-sizes, $size) * 1.1);
+  }
+
+  @media screen and (min-width: 992px) {
+    font-size: calc(map-get($font-sizes, $size) * 1.3);
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: calc(map-get($font-sizes, $size) * 1.5);
+  }
+}
+
+.fs-cs-1 {
+  @include responsive-font-size("xs");
+}
+
+.fs-cs-2 {
+  @include responsive-font-size("xxl");
+  font-family: $font-family-gabriela;
+  font-weight: 400; 
+  font-style: normal;
+}
+
+.fs-cs-3 {
+  @include responsive-font-size("sm");
+}
+
+.fs-cs-4 {
+  @include responsive-font-size("xl");
+  font-family: $font-family-noto;
+  font-optical-sizing: auto;
+  font-weight: 258;
+  font-style: normal;
+}
+
+.fs-cs-5 {
+  @include responsive-font-size("xxl");
+  font-family: $font-family-funnel;
+  font-optical-sizing: auto;
+  font-weight: 705;
+  font-style: normal;
+}
+
+.fs-cs-6 {
+  @include responsive-font-size("md");
+}
+
+/*color texto*/
+$text-1: white;
+$text-2: black;
+
+.t-white {
+  color: $text-1;
+}
+
+.t-black {
+  color: $text-2;
+}
+
+/*personalizar nav-pills*/
+
+$nav-hover-bg: #2a5478; // Color de fondo para hover
+$nav-hover-text: #ffffff; // Color de texto para hover
+$nav-active-bg: #1d3d5c; // Color cuando está activo
+
+.nav-pills-custom {
+  background: rgba(0, 0, 0, 0.3); // Color de fondo semi-transparente
+  backdrop-filter: blur(8px); // Efecto blur
+  -webkit-backdrop-filter: blur(8px); // Soporte para Safari
+  padding: 5px;
+  font-family: $navbar-font-family;
+  font-weight: $navbar-font-weight; // Espaciado interno
+
+  .nav-link {
+    // Estilos base
+    color: $text-1;
+    transition: all 0.4s ease;
+    border-radius: 10px; // Bordes curvos
+    padding: 5px 12px; // Padding para mejor apariencia
+    margin: 0 4px; // Espacio entre pills
+
+    // Hover state
+    &:hover {
+      background-color: $nav-hover-bg;
+      color: $nav-hover-text;
+      transform: translateY(-2px);
+      border-radius: 25px;
+    }
+
+    // Active state
+    &.active {
+      background-color: $nav-active-bg;
+      border-radius: 25px;
+
+      &:hover {
+        background-color: lighten($nav-active-bg, 10%);
+      }
+    }
+
+    // Focus states
+    &:focus {
+      color: $nav-hover-text;
+      background-color: $nav-hover-bg;
+      box-shadow: none; // Elimina el outline predeterminado
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $nav-hover-text;
+      outline-offset: 2px;
+      border-radius: 25px;
+    }
+
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
+}
+
+/*redes*/
+$linkedin-color: #0274b3;
+$github-color: #24262a;
+$icon-size: 23px;
+$container-gap: 15px;
+$icon-background: #ffffff;
+$icon-text-color: #000000;
+$icon-border-radius: 10px;
+$transition-speed: 0.3s;
+
+// Reset de lista
+ul {
+  list-style: none;
+}
+
+// Contenedor principal
+.container__redes {
+  display: flex;
+  justify-content: center;
+  gap: $container-gap;
+  padding-top: 1rem;
+
+
+  ul.redes {
+    padding-left: 0;
+    // Solo elimina el padding izquierdo
+  }
+}
+
+// Estilos de redes sociales
+.redes {
+  .icon-content {
+    position: relative;
+
+    a {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 3rem;
+      height: 2.5rem;
+      border-radius: $icon-border-radius;
+      color: $icon-text-color;
+      background-color: $icon-background;
+      transition: all $transition-speed ease;
+
+      svg {
+        position: relative;
+        z-index: 1;
+        width: $icon-size;
+        height: $icon-size;
+      }
+
+      &:hover {
+        color: white;
+      }
+
+      .filled {
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: #000;
+        transition: all $transition-speed ease;
+      }
+
+      &:hover .filled {
+        height: 100%;
+      }
+
+      // Colores específicos para cada red social
+      &[data-social="linkedin"] .filled {
+        background-color: $linkedin-color;
+      }
+
+      &[data-social="github"] .filled {
+        background-color: $github-color;
+      }
+    }
+  }
+}
+
+/* Estilo para el texto animado */
+#script__Texto {
+  min-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+
+/* Estilos base para la imagen de perfil */
+.profile-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+/* Teléfonos pequeños (320px - 480px) */
+@media screen and (min-width: 320px) {
+  .profile-image {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Teléfonos medianos (481px - 767px) */
+@media screen and (min-width: 481px) {
+  .profile-image {
+    width: 210px;
+    height: 210px;
+  }
+}
+
+/* Teléfonos grandes y tablets (768px - 991px) */
+@media screen and (min-width: 768px) {
+  .profile-image {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Pantallas de escritorio (992px en adelante) */
+@media screen and (min-width: 992px) {
+  .profile-image {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/*Pantallas de Escritorio Pequeñas	1200px - 1599px	1200px*/
+@media screen and (min-width: 1200px) {
+  .profile-image {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+$utilities: (
+  "min-viewport-height": (property: min-height,
+    class: min-vh,
+    values: (25: 25vh,
+      50: 50vh,
+      75: 75vh,
+      100: 100vh))
+);
+
+.size-img-cs {
+  $image-size: 64px;
+
+  width: $image-size;
+  height: $image-size;
+  object-fit: contain;
+  margin: 10px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.size-img-cs-2 {
+  $image-size: 140px;
+
+  width: $image-size;
+  height: $image-size;
+  object-fit: contain;
+  margin: 10px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+// Variables de colores para los modales
+$modal-html5-bg: #e34c26; // Color de fondo para HTML5
+$modal-css3-bg: #1572b6; // Color de fondo para CSS3
+$modal-js-bg: #f7df1e; // Color de fondo para JavaScript
+$modal-bs-bg: #6938b3; // Color de fondo para Bootstrap
+$modal-php-bg: #8392cb; // Color de fondo para PHP
+$modal-laravel-bg: #ffffff; // Color de fondo para Laravel
+$modal-python-bg: #193248; // Color de fondo para Python
+$modal-vscode-bg: #007acc; // Color de fondo para Visual Studio Code
+$modal-github-bg: #242424; // Color de fondo para GitHub
+
+// Estilos personalizados para los modales
+.modal-html5 {
+  .modal-content {
+    background-color: $modal-html5-bg;
+    color: white; // Color del texto
+  }
+}
+
+.modal-css3 {
+  .modal-content {
+    background-color: $modal-css3-bg;
+    color: white; // Color del texto
+  }
+}
+
+.modal-js {
+  .modal-content {
+    background-color: $modal-js-bg;
+    color: black; // Color del texto
+  }
+}
+
+.modal-bootstrap {
+  .modal-content {
+    background-color: $modal-bs-bg;
+    color: white; // Color del texto
+  }
+}
+
+.modal-php {
+  .modal-content {
+    background-color: $modal-php-bg;
+    color: black; // Color del texto
+  }
+}
+
+.modal-laravel {
+  .modal-content {
+    background-color: $modal-laravel-bg;
+    color: rgb(212, 66, 66); // Color del texto
+  }
+}
+
+.modal-python {
+  .modal-content {
+    background-color: $modal-python-bg;
+    color: white; // Color del texto
+  }
+}
+
+.modal-vscode {
+  .modal-content {
+    background-color: $modal-vscode-bg;
+    color: white; // Color del texto
+  }
+}
+
+.modal-github {
+  .modal-content {
+    background-color: $modal-github-bg;
+    color: white; // Color del texto
+  }
+}
+
+
+/*Contact*/
+// Estilos principales del formulario de contacto
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+
+  // Título del formulario
+  .title {
+    font-size: 28px;
+    color: royalblue;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      left: 0px;
+      background-color: royalblue;
+    }
+
+    &::before {
+      width: 18px;
+      height: 18px;
+    }
+
+    &::after {
+      width: 18px;
+      height: 18px;
+      animation: pulse 1s linear infinite;
+    }
+  }
+
+  // Mensaje descriptivo
+  .message {
+    color: rgba(88, 87, 87, 0.822);
+    font-size: 14px;
+  }
+
+  // Contenedor flexible para nombres
+  .flex {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+
+    label {
+      position: relative;
+
+      .input {
+        width: 100%;
+        padding: 10px 10px 20px 10px;
+        outline: 0;
+        border: 1px solid rgba(105, 105, 105, 0.397);
+        border-radius: 10px;
+
+        &+span {
+          position: absolute;
+          left: 10px;
+          top: 15px;
+          color: grey;
+          font-size: 0.9em;
+          cursor: text;
+          transition: 0.3s ease;
+        }
+
+        &:placeholder-shown+span {
+          top: 15px;
+          font-size: 0.9em;
+        }
+
+        &:focus+span,
+        &:valid+span {
+          top: 30px;
+          font-size: 0.7em;
+          font-weight: 600;
+        }
+
+        &:valid+span {
+          color: green;
+        }
+      }
+    }
+  }
+
+  // Campos individuales del formulario
+  label {
+    position: relative;
+
+    .input {
+      width: 100%;
+      padding: 10px 10px 20px 10px;
+      outline: 0;
+      border: 1px solid rgba(105, 105, 105, 0.397);
+      border-radius: 10px;
+
+      &+span {
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        color: grey;
+        font-size: 0.9em;
+        cursor: text;
+        transition: 0.3s ease;
+      }
+
+      &:placeholder-shown+span {
+        top: 15px;
+        font-size: 0.9em;
+      }
+
+      &:focus+span,
+      &:valid+span {
+        top: 30px;
+        font-size: 0.7em;
+        font-weight: 600;
+      }
+
+      &:valid+span {
+        color: green;
+      }
+    }
+  }
+
+  // Botón de envío
+  .submit {
+    border: none;
+    outline: none;
+    background-color: royalblue;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.3s ease;
+
+    &:hover {
+      background-color: rgb(56, 90, 194);
+    }
+  }
+
+  // Enlace para iniciar sesión
+  .signin {
+    text-align: center;
+
+    a {
+      color: royalblue;
+
+      &:hover {
+        text-decoration: underline royalblue;
+      }
+    }
+  }
+}
+
+// Animación de pulsación
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+// Estilos para el botón FAQ
+.faq-button {
+  width: 45px;
+  height: 41px;
+  border-radius: 30%;
+  border: none;
+  background-color: #ffe53b;
+  background-image: linear-gradient(147deg, #f53d3d 0%, #ff2525 74%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.151);
+  position: relative;
+
+  svg {
+    height: 1.6em;
+    fill: white;
+
+    &:hover {
+      animation: jello-vertical 0.7s both;
+    }
+  }
+
+  &:hover .tooltip {
+    right: -50px;
+    opacity: 1;
+    transition-duration: 0.3s;
+  }
+}
+
+// Animación para el botón FAQ
+@keyframes jello-vertical {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  40% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  50% {
+    transform: scale3d(0.85, 1.15, 1);
+  }
+
+  65% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  75% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+// Estilos para el tooltip
+.tooltip {
+  position: absolute;
+  right: 10px;
+  opacity: 0;
+  background-color: #ffe53b;
+  background-image: linear-gradient(147deg, #f53d3d 0%, #ff2525 74%);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.2s;
+  pointer-events: none;
+  letter-spacing: 0.5px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    width: 0px;
+    height: 0px;
+    background-color: #ff2525;
+    background-size: 1000%;
+    background-position: center;
+    transform: rotate(45deg);
+    top: 5%;
+    transition-duration: 0.3s;
+  }
+}
+
+.faq-button:hover .tooltip {
+  right: -105px;
+  opacity: 1;
+  transition-duration: 0.3s;
+}
+
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+
+/*removidos*/
+$theme-colors: map-remove($theme-colors, "info", "light", "primary", "secondary", "danger", "warning", "success");
