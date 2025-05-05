@@ -6,11 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const textoElement = document.getElementById('script__Texto');
     const textos = [
         'Ingeniero de Software',
-        'Desarrollador Web Frontend',
-        'Diseñador UI/UX',
+        'Web Developer',
         'Programador Java',
+        'Programador Python',
         'Programador JavaScript',
-        'Programador Python'
+        'Programador PHP',
+        'Diseñador UI/UX'
     ];
     let textoActual = 0;
     let letraActual = 0;
@@ -86,3 +87,13 @@ document.getElementById('contactForm').addEventListener('submit', function (even
         this.submit(); // Reanuda el envío del formulario después de la alerta
     }, 2600); // Ajustar el tiempo para que coincida con el temporizador de la alerta
 });
+
+//* Descarga de CV 
+function download() {
+  const enlace = document.createElement("a");
+  enlace.href = "https://drive.google.com/file/d/1cySfZO1opNzVAqvSeiaHP0IHNfYpk-6X/view"; // URL o ruta local
+  enlace.download = "curriculum-vitae-David-Tejada.pdf";   // nombre del archivo
+  document.body.appendChild(enlace);   // complementos al DOM
+  enlace.click();
+  document.body.removeChild(enlace);   // limpieza del DOM
+}

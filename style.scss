@@ -36,7 +36,8 @@ $border-cs: 14px;
 @import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@605&family=Rubik+Mono+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Life+Savers:wght@400;700;800&display=swap');
 // Variables
 $navbar-font-family: 'Lexend', sans-serif; // Fuente del navbar
 $navbar-font-weight: bold; // Peso de la fuente
@@ -47,15 +48,18 @@ $font-family-noto: "Noto Serif", serif;
 $font-family-yusei: "Yusei Magic", sans-serif;
 $font-family-rubik: "Rubik Mono One", monospace;
 $font-family-funnel: "Funnel Display", sans-serif;
+$font-family-righteous: "Righteous", sans-serif;
+$font-family-LifeSavers: "Life Savers", serif;
+$font-family-Gluten: "Gluten", cursive;
 
 // Font sizes responsivos
 $font-sizes: (
-  "xs": 0.75rem,// Extra pequeño
-  "sm": 0.875rem,// Pequeño
+  "xs": 0.7rem,// Extra pequeño
+  "sm": 0.9rem,// Pequeño
   "md": 1rem,// Mediano
   "lg": 1.5rem,// Grande
   "xl": 1.5rem,// Extra grande
-  "xxl": 2.6rem// Doble extra grande
+  "xxl": 2.8rem// Doble extra grande
 );
 
 @mixin responsive-font-size($size) {
@@ -79,8 +83,8 @@ $font-sizes: (
 }
 
 .fs-cs-2 {
-  @include responsive-font-size("xxl");
-  font-family: $font-family-gabriela;
+  @include responsive-font-size("xl");
+  font-family: $font-family-genos;
   font-weight: 400; 
   font-style: normal;
 }
@@ -91,22 +95,24 @@ $font-sizes: (
 
 .fs-cs-4 {
   @include responsive-font-size("xl");
-  font-family: $font-family-noto;
-  font-optical-sizing: auto;
-  font-weight: 258;
+  font-family: $font-family-Gluten;
+  font-weight: 230;
   font-style: normal;
 }
 
 .fs-cs-5 {
   @include responsive-font-size("xxl");
-  font-family: $font-family-funnel;
-  font-optical-sizing: auto;
-  font-weight: 705;
-  font-style: normal;
+  font-family: $font-family-righteous;
+
 }
 
 .fs-cs-6 {
   @include responsive-font-size("md");
+}
+
+.fs-cs-7{
+  @include responsive-font-size("sm");
+  font-style: normal;
 }
 
 /*color texto*/
@@ -119,6 +125,12 @@ $text-2: black;
 
 .t-black {
   color: $text-2;
+}
+
+/**textos*/
+.texto-justificado {
+      text-align: center;
+      hyphens: manual;
 }
 
 /*personalizar nav-pills*/
@@ -349,7 +361,7 @@ $utilities: (
 }
 
 .size-img-cs-2 {
-  $image-size: 140px;
+  $image-size: 120px;
 
   width: $image-size;
   height: $image-size;
@@ -617,7 +629,7 @@ $modal-github-bg: #242424; // Color de fondo para GitHub
   }
 }
 
-// Estilos para el botón FAQ
+// Estilos para el botón Curriculum
 .faq-button {
   width: 45px;
   height: 41px;
@@ -648,7 +660,7 @@ $modal-github-bg: #242424; // Color de fondo para GitHub
   }
 }
 
-// Animación para el botón FAQ
+// Animación para el botón Curriculum
 @keyframes jello-vertical {
   0% {
     transform: scale3d(1, 1, 1);
@@ -682,37 +694,40 @@ $modal-github-bg: #242424; // Color de fondo para GitHub
 // Estilos para el tooltip
 .tooltip {
   position: absolute;
-  right: 10px;
-  opacity: 0;
+  left: 50%; // Centra horizontalmente
+  transform: translateX(-50%); // Inicia en el centro
+  opacity: 0; // Oculto inicialmente
   background-color: #ffe53b;
   background-image: linear-gradient(147deg, #f53d3d 0%, #ff2525 74%);
   color: white;
-  padding: 5px 10px;
+  padding: 5px 15px; // Espaciado interno
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition-duration: 0.2s;
+  white-space: nowrap; // Evita el ajuste del texto
+  min-width: max-content; // Asegura que el ancho mínimo sea suficiente para el texto
+  box-sizing: border-box; // Incluye el padding en el tamaño total
+  transition: transform 0.3s ease, opacity 0.3s ease; // Transición suave
   pointer-events: none;
-  letter-spacing: 0.5px;
 
   &::before {
-    position: absolute;
-    content: "";
+    content: "Curriculum";
     width: 0px;
     height: 0px;
     background-color: #ff2525;
     background-size: 1000%;
     background-position: center;
     transform: rotate(45deg);
-    top: 5%;
+    right: 10%;
     transition-duration: 0.3s;
   }
 }
 
+// Cambia el comportamiento al hacer hover
 .faq-button:hover .tooltip {
-  right: -105px;
-  opacity: 1;
+  transform: translateX(30%); // Mueve hacia la derecha
+  opacity: 1; // Hace visible el tooltip
   transition-duration: 0.3s;
 }
 

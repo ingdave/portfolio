@@ -7,6 +7,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@605&family=Rubik+Mono+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Life+Savers:wght@400;700;800&display=swap");
 .bg {
   background: linear-gradient(90deg, black 2%, #193248 70%, #193248 90%);
 }
@@ -30,70 +32,69 @@
 
 /*fuentes*/
 .fs-cs-1 {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
 }
 @media screen and (min-width: 768px) {
   .fs-cs-1 {
-    font-size: 0.825rem;
+    font-size: 0.77rem;
   }
 }
 @media screen and (min-width: 992px) {
   .fs-cs-1 {
-    font-size: 0.975rem;
+    font-size: 0.91rem;
   }
 }
 @media screen and (min-width: 1200px) {
   .fs-cs-1 {
-    font-size: 1.125rem;
+    font-size: 1.05rem;
   }
 }
 
 .fs-cs-2 {
-  font-size: 2.6rem;
-  font-family: "Gabriela", serif;
+  font-size: 1.5rem;
+  font-family: "Genos", serif;
   font-weight: 400;
   font-style: normal;
 }
 @media screen and (min-width: 768px) {
   .fs-cs-2 {
-    font-size: 2.86rem;
+    font-size: 1.65rem;
   }
 }
 @media screen and (min-width: 992px) {
   .fs-cs-2 {
-    font-size: 3.38rem;
+    font-size: 1.95rem;
   }
 }
 @media screen and (min-width: 1200px) {
   .fs-cs-2 {
-    font-size: 3.9rem;
+    font-size: 2.25rem;
   }
 }
 
 .fs-cs-3 {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
 }
 @media screen and (min-width: 768px) {
   .fs-cs-3 {
-    font-size: 0.9625rem;
+    font-size: 0.99rem;
   }
 }
 @media screen and (min-width: 992px) {
   .fs-cs-3 {
-    font-size: 1.1375rem;
+    font-size: 1.17rem;
   }
 }
 @media screen and (min-width: 1200px) {
   .fs-cs-3 {
-    font-size: 1.3125rem;
+    font-size: 1.35rem;
   }
 }
 
 .fs-cs-4 {
   font-size: 1.5rem;
-  font-family: "Noto Serif", serif;
-  font-optical-sizing: auto;
-  font-weight: 258;
+  font-family: "Gluten", cursive;
+  font-weight: 230;
   font-style: normal;
 }
 @media screen and (min-width: 768px) {
@@ -113,25 +114,22 @@
 }
 
 .fs-cs-5 {
-  font-size: 2.6rem;
-  font-family: "Funnel Display", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 705;
-  font-style: normal;
+  font-size: 2.8rem;
+  font-family: "Righteous", sans-serif;
 }
 @media screen and (min-width: 768px) {
   .fs-cs-5 {
-    font-size: 2.86rem;
+    font-size: 3.08rem;
   }
 }
 @media screen and (min-width: 992px) {
   .fs-cs-5 {
-    font-size: 3.38rem;
+    font-size: 3.64rem;
   }
 }
 @media screen and (min-width: 1200px) {
   .fs-cs-5 {
-    font-size: 3.9rem;
+    font-size: 4.2rem;
   }
 }
 
@@ -154,6 +152,26 @@
   }
 }
 
+.fs-cs-7 {
+  font-size: 0.9rem;
+  font-style: normal;
+}
+@media screen and (min-width: 768px) {
+  .fs-cs-7 {
+    font-size: 0.99rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .fs-cs-7 {
+    font-size: 1.17rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .fs-cs-7 {
+    font-size: 1.35rem;
+  }
+}
+
 /*color texto*/
 .t-white {
   color: white;
@@ -161,6 +179,13 @@
 
 .t-black {
   color: black;
+}
+
+/**textos*/
+.texto-justificado {
+  text-align: center;
+  -webkit-hyphens: manual;
+          hyphens: manual;
 }
 
 /*personalizar nav-pills*/
@@ -334,8 +359,8 @@ ul {
 }
 
 .size-img-cs-2 {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   -o-object-fit: contain;
      object-fit: contain;
   margin: 10px;
@@ -594,35 +619,38 @@ ul {
 }
 .tooltip {
   position: absolute;
-  right: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   opacity: 0;
   background-color: #ffe53b;
   background-image: linear-gradient(147deg, #f53d3d 0%, #ff2525 74%);
   color: white;
-  padding: 5px 10px;
+  padding: 5px 15px;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition-duration: 0.2s;
+  white-space: nowrap;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   pointer-events: none;
-  letter-spacing: 0.5px;
 }
 .tooltip::before {
-  position: absolute;
-  content: "";
+  content: "Curriculum";
   width: 0px;
   height: 0px;
   background-color: #ff2525;
   background-size: 1000%;
   background-position: center;
   transform: rotate(45deg);
-  top: 5%;
+  right: 10%;
   transition-duration: 0.3s;
 }
 
 .faq-button:hover .tooltip {
-  right: -105px;
+  transform: translateX(30%);
   opacity: 1;
   transition-duration: 0.3s;
 }
@@ -8939,11 +8967,11 @@ textarea.form-control-lg {
 }
 
 .fs-xs {
-  font-size: 0.75rem !important;
+  font-size: 0.7rem !important;
 }
 
 .fs-sm {
-  font-size: 0.875rem !important;
+  font-size: 0.9rem !important;
 }
 
 .fs-md {
@@ -8959,7 +8987,7 @@ textarea.form-control-lg {
 }
 
 .fs-xxl {
-  font-size: calc(1.385rem + 1.62vw) !important;
+  font-size: calc(1.405rem + 1.86vw) !important;
 }
 
 .fst-italic {
@@ -12569,7 +12597,7 @@ textarea.form-control-lg {
     font-size: 1.5rem !important;
   }
   .fs-xxl {
-    font-size: 2.6rem !important;
+    font-size: 2.8rem !important;
   }
 }
 @media print {
