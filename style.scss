@@ -1,6 +1,6 @@
 /*Colores de fondo*/
 $bg: linear-gradient(90deg, black 2%, #193248 70%, #193248 90%);
-$bg-card-uno: linear-gradient(to right, #e3a301, #FFCC00);
+$bg-card-uno: inear-gradient(90deg, rgb(6, 26, 2) 2%, #b89300 70%, #ffcc00 90%);
 $bg-card-dos: linear-gradient(90deg, rgb(6, 26, 2) 2%, #0f7006 70%, #0faa01 90%);
 $bg-card-tres: linear-gradient(90deg, rgb(3, 14, 36) 2%, #120076 70%, #011876 90%);
 $bg-black-default: rgba(0, 0, 0, 0.205);
@@ -38,7 +38,8 @@ $border-cs: 14px;
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@605&family=Rubik+Mono+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Life+Savers:wght@400;700;800&display=swap');
-// Variables
+
+// Variables de fuentes
 $navbar-font-family: 'Lexend', sans-serif; // Fuente del navbar
 $navbar-font-weight: bold; // Peso de la fuente
 $font-family-base: "Poppins", sans-serif;
@@ -54,12 +55,17 @@ $font-family-Gluten: "Gluten", cursive;
 
 // Font sizes responsivos
 $font-sizes: (
-  "xs": 0.7rem,// Extra pequeño
-  "sm": 0.9rem,// Pequeño
-  "md": 1rem,// Mediano
-  "lg": 1.5rem,// Grande
-  "xl": 1.5rem,// Extra grande
-  "xxl": 2.8rem// Doble extra grande
+  "xs": 0.7rem,
+  // Extra pequeño
+  "sm": 0.9rem,
+  // Pequeño
+  "md": 1rem,
+  // Mediano
+  "lg": 1.5rem,
+  // Grande
+  "xl": 1.5rem,
+  // Extra grande
+  "xxl": 2.8rem // Doble extra grande
 );
 
 @mixin responsive-font-size($size) {
@@ -85,7 +91,7 @@ $font-sizes: (
 .fs-cs-2 {
   @include responsive-font-size("xl");
   font-family: $font-family-genos;
-  font-weight: 400; 
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -110,7 +116,7 @@ $font-sizes: (
   @include responsive-font-size("md");
 }
 
-.fs-cs-7{
+.fs-cs-7 {
   @include responsive-font-size("sm");
   font-style: normal;
 }
@@ -120,17 +126,17 @@ $text-1: white;
 $text-2: black;
 
 .t-white {
-  color: $text-1;
+  color: $text-1 !important;
 }
 
 .t-black {
-  color: $text-2;
+  color: $text-2 !important;
 }
 
 /**textos*/
 .texto-justificado {
-      text-align: center;
-      hyphens: manual;
+  text-align: center;
+  hyphens: manual;
 }
 
 /*personalizar nav-pills*/
@@ -691,44 +697,181 @@ $modal-github-bg: #242424; // Color de fondo para GitHub
   }
 }
 
-// Estilos para el tooltip
-.tooltip {
-  position: absolute;
-  left: 50%; // Centra horizontalmente
-  transform: translateX(-50%); // Inicia en el centro
-  opacity: 0; // Oculto inicialmente
-  background-color: #ffe53b;
-  background-image: linear-gradient(147deg, #f53d3d 0%, #ff2525 74%);
-  color: white;
-  padding: 5px 15px; // Espaciado interno
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap; // Evita el ajuste del texto
-  min-width: max-content; // Asegura que el ancho mínimo sea suficiente para el texto
-  box-sizing: border-box; // Incluye el padding en el tamaño total
-  transition: transform 0.3s ease, opacity 0.3s ease; // Transición suave
-  pointer-events: none;
+// Estilos para las cards
 
-  &::before {
-    content: "Curriculum";
-    width: 0px;
-    height: 0px;
-    background-color: #ff2525;
-    background-size: 1000%;
-    background-position: center;
-    transform: rotate(45deg);
-    right: 10%;
-    transition-duration: 0.3s;
+$card-color-bg: #141414;
+$card-bg-top-section: linear-gradient(45deg, #444342 0%, #41403e 100%);
+$card-border-left: 1px solid rgba(255, 255, 255, 0.126);
+
+.card-clucksys {
+  .top-section .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
   }
-}
 
-// Cambia el comportamiento al hacer hover
-.faq-button:hover .tooltip {
-  transform: translateX(30%); // Mueve hacia la derecha
-  opacity: 1; // Hace visible el tooltip
-  transition-duration: 0.3s;
+
+  .top-section img {
+    width: 40%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  .card {
+    width: 240px;
+    border-radius: 25px;
+    background: $card-color-bg;
+    padding: 10px;
+    overflow: hidden;
+    box-shadow: #00000033 0px 7px 20px 0px;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  .img img {
+    width: 5rem;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  .card .top-section {
+    height: 150px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background: $card-bg-top-section; 
+    position: relative;
+  }
+
+  .card .top-section .border-card {
+    border-bottom-right-radius: 10px;
+    height: 30px;
+    width: 130px;
+    background: #141414;
+    position: relative;
+    transform: skew(-40deg);
+    box-shadow: -10px -10px 0 0 #141414;
+  }
+
+  .card .top-section .border-card::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 0;
+    right: -15px;
+    background: rgba(255, 255, 255, 0);
+    border-top-left-radius: 10px;
+    box-shadow: -5px -5px 0 2px #141414
+  }
+
+  .card .top-section::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background: rgba(255, 255, 255, 0);
+    height: 15px;
+    width: 15px;
+    border-top-left-radius: 15px;
+    box-shadow: -5px -5px 0 2px #141414;
+  }
+
+  .card .top-section .icons {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card .top-section .icons .logo {
+    height: 100%;
+    aspect-ratio: 1;
+    padding: 7px 0 7px 15px;
+  }
+
+  .social-media {
+    height: 100%;
+    padding: 4px 4px;
+    display: flex;
+    gap: 3px;
+  }
+
+  .social-media img {
+    width: 25px;
+    border-radius: 0;
+  }
+
+  .card .bottom-section {
+    margin-top: 0;
+    padding: 10px 5px;
+  }
+
+  .card .bottom-section .title {
+    display: block;
+    font-size: 23px;
+    font-weight: bolder;
+    font-family: $font-family-genos !important;
+    color: white;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  .card .bottom-section .row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .card .bottom-section .row .item {
+    flex: 30%;
+    text-align: center;
+    padding: 5px;
+    color: #fff;
+  }
+
+  .card .bottom-section .row .item .big-text {
+    font-size: 12px;
+    display: block;
+  }
+
+  .card .bottom-section .row .item .regular-text {
+    font-size: 14px;
+  }
+
+  .card .bottom-section .row .item:nth-child(2) {
+    border-left: $card-border-left;
+  }
+
+  button {
+    background-color: #c50000;
+    color: white;
+    font-size: bold 16px;
+    font-weight: bold;
+    padding: 5px 20px;
+    border-radius: 2em;
+    cursor: pointer;
+    transition: 0.1s ease;
+    border-width: 0;
+    box-shadow: 1px 5px 0 0 #5a0000;
+  }
+
+  button:hover {
+    transform: translateY(-4px);
+    box-shadow: 1px 9px 0 0 #490303;
+  }
+
+  button:active {
+    transform: translateY(4px);
+    box-shadow: 0px 0px 0 0 #ac0600;
+  }
+
 }
 
 @import "./node_modules/bootstrap/scss/bootstrap.scss";

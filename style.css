@@ -14,7 +14,7 @@
 }
 
 .bg-card-uno {
-  background: linear-gradient(to right, #e3a301, #FFCC00);
+  background: inear-gradient(90deg, rgb(6, 26, 2) 2%, #b89300 70%, #ffcc00 90%);
 }
 
 .bg-card-dos {
@@ -174,11 +174,11 @@
 
 /*color texto*/
 .t-white {
-  color: white;
+  color: white !important;
 }
 
 .t-black {
-  color: black;
+  color: black !important;
 }
 
 /**textos*/
@@ -617,42 +617,151 @@ ul {
     transform: scale3d(1, 1, 1);
   }
 }
-.tooltip {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  background-color: #ffe53b;
-  background-image: linear-gradient(147deg, #f53d3d 0%, #ff2525 74%);
-  color: white;
-  padding: 5px 15px;
-  border-radius: 5px;
+.card-clucksys .top-section .image {
   display: flex;
-  align-items: center;
   justify-content: center;
-  white-space: nowrap;
-  min-width: -moz-max-content;
-  min-width: max-content;
-  box-sizing: border-box;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  pointer-events: none;
+  align-items: center;
+  margin: 1rem;
 }
-.tooltip::before {
-  content: "Curriculum";
-  width: 0px;
-  height: 0px;
-  background-color: #ff2525;
-  background-size: 1000%;
-  background-position: center;
-  transform: rotate(45deg);
-  right: 10%;
-  transition-duration: 0.3s;
+.card-clucksys .top-section img {
+  width: 40%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
 }
-
-.faq-button:hover .tooltip {
-  transform: translateX(30%);
-  opacity: 1;
-  transition-duration: 0.3s;
+.card-clucksys .card {
+  width: 240px;
+  border-radius: 25px;
+  background: #141414;
+  padding: 10px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 20px 0px;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card-clucksys .card:hover {
+  transform: scale(1.05);
+}
+.card-clucksys .img img {
+  width: 5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+}
+.card-clucksys .card .top-section {
+  height: 150px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, #444342 0%, #41403e 100%);
+  position: relative;
+}
+.card-clucksys .card .top-section .border-card {
+  border-bottom-right-radius: 10px;
+  height: 30px;
+  width: 130px;
+  background: #141414;
+  position: relative;
+  transform: skew(-40deg);
+  box-shadow: -10px -10px 0 0 #141414;
+}
+.card-clucksys .card .top-section .border-card::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  right: -15px;
+  background: rgba(255, 255, 255, 0);
+  border-top-left-radius: 10px;
+  box-shadow: -5px -5px 0 2px #141414;
+}
+.card-clucksys .card .top-section::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: rgba(255, 255, 255, 0);
+  height: 15px;
+  width: 15px;
+  border-top-left-radius: 15px;
+  box-shadow: -5px -5px 0 2px #141414;
+}
+.card-clucksys .card .top-section .icons {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.card-clucksys .card .top-section .icons .logo {
+  height: 100%;
+  aspect-ratio: 1;
+  padding: 7px 0 7px 15px;
+}
+.card-clucksys .social-media {
+  height: 100%;
+  padding: 4px 4px;
+  display: flex;
+  gap: 3px;
+}
+.card-clucksys .social-media img {
+  width: 25px;
+  border-radius: 0;
+}
+.card-clucksys .card .bottom-section {
+  margin-top: 0;
+  padding: 10px 5px;
+}
+.card-clucksys .card .bottom-section .title {
+  display: block;
+  font-size: 23px;
+  font-weight: bolder;
+  font-family: "Genos", serif !important;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.card-clucksys .card .bottom-section .row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.card-clucksys .card .bottom-section .row .item {
+  flex: 30%;
+  text-align: center;
+  padding: 5px;
+  color: #fff;
+}
+.card-clucksys .card .bottom-section .row .item .big-text {
+  font-size: 12px;
+  display: block;
+}
+.card-clucksys .card .bottom-section .row .item .regular-text {
+  font-size: 14px;
+}
+.card-clucksys .card .bottom-section .row .item:nth-child(2) {
+  border-left: 1px solid rgba(255, 255, 255, 0.126);
+}
+.card-clucksys button {
+  background-color: #c50000;
+  color: white;
+  font-size: bold 16px;
+  font-weight: bold;
+  padding: 5px 20px;
+  border-radius: 2em;
+  cursor: pointer;
+  transition: 0.1s ease;
+  border-width: 0;
+  box-shadow: 1px 5px 0 0 #5a0000;
+}
+.card-clucksys button:hover {
+  transform: translateY(-4px);
+  box-shadow: 1px 9px 0 0 #490303;
+}
+.card-clucksys button:active {
+  transform: translateY(4px);
+  box-shadow: 0px 0px 0 0 #ac0600;
 }
 
 /*!
