@@ -1,10 +1,12 @@
 /*Colores de fondo*/
 $bg: linear-gradient(90deg, black 2%, #193248 70%, #193248 90%);
-$bg-black-default: rgba(0, 0, 0, 0.205);
-$border-cs: 14px;
 
 .bg {
   background: $bg;
+}
+
+.bg-custom-side{
+  background: rgba(0, 0, 0, 0.212);
 }
 
 /*fuentes*/
