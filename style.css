@@ -415,12 +415,13 @@ ul {
 }
 .form .title {
   font-size: 28px;
-  color: royalblue;
+  color: #254866;
   font-weight: 600;
   letter-spacing: -1px;
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding-left: 30px;
 }
 .form .title::before, .form .title::after {
@@ -429,8 +430,8 @@ ul {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  left: 0px;
-  background-color: royalblue;
+  left: 55px;
+  background-color: #254866;
 }
 .form .title::before {
   width: 18px;
@@ -483,7 +484,7 @@ ul {
   font-weight: 600;
 }
 .form .flex label .input:valid + span {
-  color: green;
+  color: #254866;
 }
 .form label {
   position: relative;
@@ -513,17 +514,17 @@ ul {
   font-size: 0.9em;
 }
 .form label .input:focus + span, .form label .input:valid + span {
-  top: 30px;
+  top: 1px;
   font-size: 0.7em;
   font-weight: 600;
 }
 .form label .input:valid + span {
-  color: green;
+  color: #1d6db4;
 }
 .form .submit {
   border: none;
   outline: none;
-  background-color: royalblue;
+  background-color: #254866;
   padding: 10px;
   border-radius: 10px;
   color: #fff;
@@ -531,17 +532,17 @@ ul {
   transition: 0.3s ease;
 }
 .form .submit:hover {
-  background-color: rgb(56, 90, 194);
+  background-color: #325f88;
 }
 .form .signin {
   text-align: center;
 }
 .form .signin a {
-  color: royalblue;
+  color: rgba(3, 109, 128, 0.9647058824);
 }
 .form .signin a:hover {
-  -webkit-text-decoration: underline royalblue;
-          text-decoration: underline royalblue;
+  -webkit-text-decoration: underline rgba(3, 109, 128, 0.9647058824);
+          text-decoration: underline rgba(3, 109, 128, 0.9647058824);
 }
 
 @keyframes pulse {

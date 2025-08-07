@@ -453,12 +453,13 @@ $modal-github-bg: #242424; // Color de fondo para GitHub
   // Título del formulario
   .title {
     font-size: 28px;
-    color: royalblue;
+    color: #254866;
     font-weight: 600;
     letter-spacing: -1px;
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding-left: 30px;
 
     &::before,
@@ -468,8 +469,8 @@ $modal-github-bg: #242424; // Color de fondo para GitHub
       height: 16px;
       width: 16px;
       border-radius: 50%;
-      left: 0px;
-      background-color: royalblue;
+      left: 55px;
+      background-color: #254866;
     }
 
     &::before {
@@ -529,7 +530,7 @@ $modal-github-bg: #242424; // Color de fondo para GitHub
         }
 
         &:valid+span {
-          color: green;
+          color:  #254866;
         }
       }
     }
@@ -563,13 +564,13 @@ $modal-github-bg: #242424; // Color de fondo para GitHub
 
       &:focus+span,
       &:valid+span {
-        top: 30px;
+        top: 1px;
         font-size: 0.7em;
         font-weight: 600;
       }
 
       &:valid+span {
-        color: green;
+        color:  #1d6db4;
       }
     }
   }
@@ -578,7 +579,7 @@ $modal-github-bg: #242424; // Color de fondo para GitHub
   .submit {
     border: none;
     outline: none;
-    background-color: royalblue;
+    background-color:  #254866;
     padding: 10px;
     border-radius: 10px;
     color: #fff;
@@ -586,23 +587,10 @@ $modal-github-bg: #242424; // Color de fondo para GitHub
     transition: 0.3s ease;
 
     &:hover {
-      background-color: rgb(56, 90, 194);
+      background-color:#325f88;
     }
   }
 
-  // Enlace para iniciar sesión
-  .signin {
-    text-align: center;
-
-    a {
-      color: royalblue;
-
-      &:hover {
-        text-decoration: underline royalblue;
-      }
-    }
-  }
-}
 
 // Animación de pulsación
 @keyframes pulse {
