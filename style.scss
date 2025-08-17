@@ -5,7 +5,7 @@ $bg: linear-gradient(90deg, black 2%, #193248 70%, #193248 90%);
   background: $bg;
 }
 
-.bg-custom-side{
+.bg-custom-side {
   background: rgba(0, 0, 0, 0.212);
 }
 
@@ -35,73 +35,50 @@ $font-family-righteous: "Righteous", sans-serif;
 $font-family-LifeSavers: "Life Savers", serif;
 $font-family-Gluten: "Gluten", cursive;
 
-// Font sizes responsivos
+//Estilo de la fuente
+
 $font-sizes: (
   "xs": 0.7rem,
-  // Extra pequeño
   "sm": 0.9rem,
-  // Pequeño
   "md": 1rem,
-  // Mediano
-  "lg": 1.5rem,
-  // Grande
+  "lg": 1.3rem,
   "xl": 1.5rem,
-  // Extra grande
-  "xxl": 2.8rem // Doble extra grande
+  "xxl": 2.8rem
 );
+
+$breakpoints: (768px: 1.2, 992px: 1.3, 1200px: 1.4);
 
 @mixin responsive-font-size($size) {
   font-size: map-get($font-sizes, $size);
-
-  @media screen and (min-width: 768px) {
-    font-size: calc(map-get($font-sizes, $size) * 1.1);
-  }
-
-  @media screen and (min-width: 992px) {
-    font-size: calc(map-get($font-sizes, $size) * 1.3);
-  }
-
-  @media screen and (min-width: 1200px) {
-    font-size: calc(map-get($font-sizes, $size) * 1.5);
+  
+  @each $breakpoint, $multiplier in $breakpoints {
+    @media screen and (min-width: $breakpoint) {
+      font-size: calc(#{map-get($font-sizes, $size)} * #{$multiplier});
+    }
   }
 }
 
-.fs-cs-1 {
-  @include responsive-font-size("xs");
+$font-classes: (
+  "fs-cs-1": ("xs"),
+  "fs-cs-2": ("xl", $font-family-genos, 400),
+  "fs-cs-3": ("sm"),
+  "fs-cs-4": ("xl", $font-family-Gluten, 230),
+  "fs-cs-5": ("xxl", $font-family-righteous),
+  "fs-cs-6": ("md"),
+  "fs-cs-7": ("sm")
+);
+
+@each $class, $props in $font-classes {
+  .#{$class} {
+    @include responsive-font-size(nth($props, 1));
+    
+    @if length($props) > 1 { font-family: nth($props, 2); }
+    @if length($props) > 2 { font-weight: nth($props, 3); }
+    
+    font-style: normal;
+  }
 }
 
-.fs-cs-2 {
-  @include responsive-font-size("xl");
-  font-family: $font-family-genos;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.fs-cs-3 {
-  @include responsive-font-size("sm");
-}
-
-.fs-cs-4 {
-  @include responsive-font-size("xl");
-  font-family: $font-family-Gluten;
-  font-weight: 230;
-  font-style: normal;
-}
-
-.fs-cs-5 {
-  @include responsive-font-size("xxl");
-  font-family: $font-family-righteous;
-
-}
-
-.fs-cs-6 {
-  @include responsive-font-size("md");
-}
-
-.fs-cs-7 {
-  @include responsive-font-size("sm");
-  font-style: normal;
-}
 
 /*color texto*/
 $text-1: white;
@@ -334,11 +311,13 @@ $utilities: (
       100: 100vh))
 );
 
-.size-img-cs {
-  $image-size: 64px;
+  // Tamaño de imagenes
+.size-img-cs-viewport {
 
-  width: $image-size;
-  height: $image-size;
+  width: 4vw; 
+  height: 4vw;
+  min-width: 3rem; // Tamaño mínimo
+  max-width: 5rem; // Tamaño máximo
   object-fit: contain;
   margin: 10px;
   transition: transform 0.3s ease;
@@ -348,19 +327,6 @@ $utilities: (
   }
 }
 
-.size-img-cs-2 {
-  $image-size: 120px;
-
-  width: $image-size;
-  height: $image-size;
-  object-fit: contain;
-  margin: 10px;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-}
 
 // Variables de colores para los modales
 $modal-html5-bg: #e34c26; // Color de fondo para HTML5
@@ -530,7 +496,7 @@ $modal-github-bg: #242424; // Color de fondo para GitHub
         }
 
         &:valid+span {
-          color:  #254866;
+          color: #254866;
         }
       }
     }
@@ -563,34 +529,34 @@ $modal-github-bg: #242424; // Color de fondo para GitHub
       }
 
       &:focus+span,
-      &:valid+span {
+      &:not(:placeholder-shown)+span {
         top: 1px;
         font-size: 0.7em;
         font-weight: 600;
       }
-
-      &:valid+span {
-        color:  #1d6db4;
-      }
+    
+    &:valid+span {
+      color: #1d6db4;
     }
   }
+}
 
-  // Botón de envío
-  .submit {
-    border: none;
-    outline: none;
-    background-color:  #254866;
-    padding: 10px;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 16px;
-    transition: 0.3s ease;
+// Botón de envío
+.submit {
+  border: none;
+  outline: none;
+  background-color: #254866;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s ease;
 
-    &:hover {
-      background-color:#325f88;
-    }
+  &:hover {
+    background-color: #325f88;
   }
-
+}
+}
 
 // Animación de pulsación
 @keyframes pulse {
@@ -697,7 +663,7 @@ $card-border-left: 1px solid #ffffff20;
     background: $card-color-bg;
     padding: 10px;
     overflow: hidden;
-  
+
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
@@ -716,7 +682,7 @@ $card-border-left: 1px solid #ffffff20;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    background: $card-bg-top-section-cs; 
+    background: $card-bg-top-section-cs;
     position: relative;
   }
 
@@ -852,7 +818,7 @@ $card-border-left: 1px solid #ffffff20;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    background: $card-bg-top-section-em; 
+    background: $card-bg-top-section-em;
     position: relative;
   }
 
@@ -989,7 +955,7 @@ $card-border-left: 1px solid #ffffff20;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    background: $card-bg-top-section-gn; 
+    background: $card-bg-top-section-gn;
     position: relative;
   }
 

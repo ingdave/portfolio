@@ -2,9 +2,9 @@
 //alterna el nombre de la etiqueta
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
-        document.title = "¡Contáctame!";
+        document.title = "Portafolio.";
     } else {
-        document.title = "Portafolio ⦁ Inicio";
+        document.title = "David | Portafolio.";
     }
 
 });
@@ -61,9 +61,6 @@ document.addEventListener("keydown", e => {
 
 document.addEventListener('DOMContentLoaded', function () {
     // Inicialización de tooltips
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
-
     const textoElement = document.getElementById('script__Texto');
     const textos = [
         'Ingeniero de Software',
@@ -72,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'Programador JavaScript',
         'Web Developer'
     ];
+
     let textoActual = 0;
     let letraActual = 0;
     let escribiendo = true;
@@ -91,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (!prefijoEscrito) {
                         textoElement.textContent = prefijo.substring(0, letraActual + 1);
                         letraActual++;
+
                         if (letraActual >= prefijo.length) {
                             prefijoEscrito = true;
                             letraActual = 0;
@@ -119,18 +118,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(animarTexto, 100);
             }
         } else {
+
             if (esProgramador) {
                 if (!programadorAnimado) {
                     if (prefijoEscrito && letraActual > 0) {
                         textoElement.textContent = prefijo + sufijo.substring(0, letraActual - 1);
                         letraActual--;
-                    } else {
+
+                    } else if (prefijoEscrito && letraActual <= 0) {
                         // No borra el prefijo, solo cambia al siguiente texto
                         prefijoEscrito = false;
                         escribiendo = true;
                         textoActual = (textoActual + 1) % textos.length;
                         letraActual = 0;
-                        programadorAnimado = true; // Ya se animó el prefijo
+                        programadorAnimado = true; // Ya se animó el prefijo (solo ahora)
                         setTimeout(animarTexto, 500);
                         return;
                     }
@@ -155,6 +156,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (letraActual < 0) {
                 escribiendo = true;
                 textoActual = (textoActual + 1) % textos.length;
+                if (textoActual === 0) {
+                    programadorAnimado = false; // reiniciar el ciclo de animacion de la palabra "programador"
+                }
                 letraActual = 0;
                 prefijoEscrito = false;
                 setTimeout(animarTexto, 500);
@@ -215,3 +219,5 @@ function download() {
     enlace.click();
     document.body.removeChild(enlace);   // limpieza del DOM
 }
+
+//formulario de contacto
