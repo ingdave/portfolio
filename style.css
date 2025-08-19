@@ -544,56 +544,63 @@ ul {
     opacity: 0;
   }
 }
-.faq-button {
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   width: 45px;
-  height: 41px;
-  border-radius: 30%;
+  height: 45px;
   border: none;
-  background-color: #ffe53b;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
   background-image: linear-gradient(147deg, #f53d3d 0%, #ff2525 74%);
+}
+.Btn .cv {
+  width: 100%;
+  transition-duration: 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.151);
-  position: relative;
 }
-.faq-button svg {
-  height: 1.6em;
+.Btn .cv svg {
+  width: 20px;
+}
+.Btn .cv svg path {
   fill: white;
 }
-.faq-button svg:hover {
-  animation: jello-vertical 0.7s both;
-}
-.faq-button:hover .tooltip {
-  right: -50px;
-  opacity: 1;
+.Btn .text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
   transition-duration: 0.3s;
 }
-
-@keyframes jello-vertical {
-  0% {
-    transform: scale3d(1, 1, 1);
-  }
-  30% {
-    transform: scale3d(0.75, 1.25, 1);
-  }
-  40% {
-    transform: scale3d(1.25, 0.75, 1);
-  }
-  50% {
-    transform: scale3d(0.85, 1.15, 1);
-  }
-  65% {
-    transform: scale3d(1.05, 0.95, 1);
-  }
-  75% {
-    transform: scale3d(0.95, 1.05, 1);
-  }
-  100% {
-    transform: scale3d(1, 1, 1);
-  }
+.Btn:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: 0.3s;
 }
+.Btn:hover .cv {
+  width: 30%;
+  transition-duration: 0.3s;
+}
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: 0.3s;
+  margin: 0 10px 0 5px;
+}
+.Btn:active {
+  transform: translate(2px, 2px);
+}
+
 .card-clucksys .top-section .image {
   display: flex;
   justify-content: center;
